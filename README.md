@@ -12,5 +12,5 @@ sudo apt-get install -y nodejs
 - Install git `sudo apt-get install git`
 - Install MEP
 ```
-git clone https://github.com/Memristor-Robotics/mep-dash.git --depth 1 && cd mep-dash && sudo ./install
+git clone https://github.com/Memristor-Robotics/mep-dash.git --depth 1 && cd mep-dash && ./install
 ```

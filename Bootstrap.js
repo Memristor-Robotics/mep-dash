@@ -1,6 +1,7 @@
 const Server = require('./Server');
 const spawn = require('child_process').spawn;
 const OpenUrl = require('openurl');
+const FindExternalIP = require('./utils/FindExternalIP');
 
 
 function startElasticsearch(onStartedCallback) {
@@ -8,7 +9,7 @@ function startElasticsearch(onStartedCallback) {
 
     const elastic = spawn('./es/elasticsearch/bin/elasticsearch');
     elastic.stdout.on('data', (data) => {
-        if (started === false && data.toString().indexOf('status changed from [RED] to [YELLOW]') >= 0) {
+        if (started === false && data.toString().indexOf('bound_addresses') >= 0) {
             started = true;
             onStartedCallback();
         }
@@ -33,6 +34,7 @@ function startKibana(onStartedCallback) {
     });
 }
 
+console.log('External IP:', FindExternalIP());
 
 if (process.argv[2] !== '--server-only') {
     // Start Elasticsearch
@@ -40,7 +42,7 @@ if (process.argv[2] !== '--server-only') {
     startElasticsearch(() => {
 
         // Start Kibana
-        console.log('Elastisearch started (HEAD: http://localhost:9200/_plugin/head/)');
+        console.log('Elastisearch started (HEAD: http://127.0.0.1:9200/_plugin/head/)');
         console.log('Starting Kibana...');
         startKibana(() => {
             console.log('Kibana started at: http://127.0.0.1:5601/');

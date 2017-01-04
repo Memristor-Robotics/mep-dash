@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Install Node.js dependencies
+npm install
+
 # ElasticSearch: https://www.elastic.co/downloads/past-releases/elasticsearch-2-4-3
 wget https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.4.3/elasticsearch-2.4.3.tar.gz -O es/elasticsearch.tar.gz
 sha1sum es/elasticsearch.tar.gz

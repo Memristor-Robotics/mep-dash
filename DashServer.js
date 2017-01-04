@@ -40,7 +40,7 @@ class DashServer extends EventEmitter {
                 }
             });
         });
-        console.log(TAG + ':', clc.green.bgWhite('localhost:' + Config.DashServer.port));
+        console.log(TAG + ':', '127.0.0.1:' + Config.DashServer.port);
     }
 
     send(packet) {

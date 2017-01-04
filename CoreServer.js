@@ -30,7 +30,7 @@ class CoreServer extends EventEmitter {
         });
 
         this.server.bind(Config.CoreServer.port, '0.0.0.0');
-        console.log(TAG + ':', clc.green.bgWhite('localhost:' + Config.CoreServer.port));
+        console.log(TAG + ':', '127.0.0.1:' + Config.CoreServer.port);
     }
 
     send(packet) {
