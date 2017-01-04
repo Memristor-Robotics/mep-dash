@@ -4,6 +4,17 @@ const OpenUrl = require('openurl');
 const FindExternalIP = require('./utils/FindExternalIP');
 
 
+// Check arguments
+let enableElastic = true;
+let enableKibana = true;
+if (process.argv.indexOf('--disable-kibana') >= 0) {
+    enableKibana = false;
+}
+if (process.argv.indexOf('--server-only') >= 0) {
+    enableElastic = false;
+    enableKibana = false;
+}
+
 function startElasticsearch(onStartedCallback) {
     let started = false;
 
@@ -36,18 +47,20 @@ function startKibana(onStartedCallback) {
 
 console.log('External IP:', FindExternalIP());
 
-if (process.argv[2] !== '--server-only') {
+if (enableElastic === true) {
     // Start Elasticsearch
     console.log('Starting Elasticsearch...');
     startElasticsearch(() => {
+        console.log('Elastisearch started (HEAD: http://127.0.0.1:9200/_plugin/head/)');
 
         // Start Kibana
-        console.log('Elastisearch started (HEAD: http://127.0.0.1:9200/_plugin/head/)');
-        console.log('Starting Kibana...');
-        startKibana(() => {
-            console.log('Kibana started at: http://127.0.0.1:5601/');
-            OpenUrl.open('http://127.0.0.1:5601/');
-        });
+        if (enableKibana === true) {
+            console.log('Starting Kibana...');
+            startKibana(() => {
+                console.log('Kibana started at: http://127.0.0.1:5601/');
+                OpenUrl.open('http://127.0.0.1:5601/');
+            });
+        }
     });
 }
 
