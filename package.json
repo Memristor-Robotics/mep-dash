@@ -1,0 +1,32 @@
+{
+  "name": "mep-dash",
+  "version": "2017.0.0",
+  "description": "Dashboard (with server) for collection and visualising data",
+  "main": "Bootstrap.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "Bootstrap.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Memristor-Robotics/mep-dash.git"
+  },
+  "keywords": [
+    "memristor",
+    "eurobot",
+    "software",
+    "dashboard"
+  ],
+  "author": "Darko Lukic <lukicdarkoo@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Memristor-Robotics/mep-dash/issues"
+  },
+  "homepage": "https://github.com/Memristor-Robotics/mep-dash#readme",
+  "dependencies": {
+    "cli-color": "^1.1.0",
+    "elasticsearch": "^12.1.3",
+    "openurl": "^1.1.1",
+    "ws": "^1.1.1"
+  }
+}
