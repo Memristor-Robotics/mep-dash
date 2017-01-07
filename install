@@ -15,7 +15,7 @@ rm es/elasticsearch.tar.gz
 
 
 # Kibana: https://www.elastic.co/downloads/past-releases/kibana-4-6-3
-git clone https://github.com/Memristor-Robotics/kibana.git es/kibana --depth=1
+git clone https://github.com/Memristor-Robotics/mep-dash-kibana.git es/kibana --depth=1
 npm --prefix ./es/kibana install ./es/kibana
 
 # Load Kibana settings
