@@ -15,10 +15,8 @@ rm es/elasticsearch.tar.gz
 
 
 # Kibana: https://www.elastic.co/downloads/past-releases/kibana-4-6-3
-wget https://download.elastic.co/kibana/kibana/kibana-4.6.3-linux-x86_64.tar.gz es/kibana-4.6.3-linux-x86_64.tar.gz -O es/kibana.tar.gz
-sha1sum es/kibana.tar.gz
-tar -xzf es/kibana.tar.gz -C es/
-mv es/kibana-4.6.3-linux-x86_64 es/kibana
-rm es/kibana.tar.gz
+git clone https://github.com/Memristor-Robotics/kibana.git es/kibana --depth=1
+npm --prefix ./es/kibana install ./es/kibana
 
-git clone https://github.com/Memristor-Robotics/mep-kibana-plugins.git es/kibana/installedPlugins --depth=1
+# Load Kibana settings
+node Dumper.js --load-kibana-settings

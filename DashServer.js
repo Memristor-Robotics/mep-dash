@@ -72,7 +72,7 @@ class DashServer extends EventEmitter {
         body[packet.from + '_' + packet.tag + '_' + packet.action] = packet.params;
 
         this.esClient.index({
-            index: 'mep2_telemetric-' + (new Date().toJSON().slice(0, 10)),
+            index: 'mep-telemetric-' + (new Date().toJSON().slice(0, 10)),
             type: 'telemetric',
             body: body
         });

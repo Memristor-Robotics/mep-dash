@@ -22,6 +22,7 @@ class CoreServer extends EventEmitter {
                     coreServer.clients[parsedData.from] = client;
                     console.log(TAG, parsedData.from, 'initialized');
                 } else {
+					parsedData.date = new Date();
                     coreServer.emit('packet', parsedData);
                 }
             } catch (e) {
