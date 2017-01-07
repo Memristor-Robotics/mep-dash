@@ -1,6 +1,6 @@
 # MEP Dashboard
-Dashboard (with server) for collection and visualising data.
-![Dashboard](./docs/assets/dashboard.png)
+Dashboard (with server) is tool for collecting, analysing and visualising data from robot.
+![Dashboard](./docs/assets/dashboard-screenshot.png)
 
 
 ## Installation
@@ -21,5 +21,5 @@ git clone https://github.com/Memristor-Robotics/mep-dash.git --depth 1 && cd mep
 Run `./dash` or `node Bootstrap.js`
 
 ## Import/Export
-- Use `node Dumper.js --load-kibana-settings` to load settings to to Kibana,
-- or `node Dumper.js --save-kibana-settings` to store settings for later usage.
+- Use `./dash --load-settings` to load settings to to Kibana,
+- or `./dash --save-settings` to store settings for later usage.

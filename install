@@ -19,4 +19,4 @@ git clone https://github.com/Memristor-Robotics/kibana.git es/kibana --depth=1
 npm --prefix ./es/kibana install ./es/kibana
 
 # Load Kibana settings
-node Dumper.js --load-kibana-settings
+node src/Dumper.js --load-kibana-settings
