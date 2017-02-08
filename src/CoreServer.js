@@ -2,6 +2,7 @@ const EventEmitter = require('events').EventEmitter;
 const Config = require('./Config');
 const dgram = require('dgram');
 const clc = require('cli-color');
+const FindExternalIP = require('./utils/FindExternalIP');
 
 const TAG = 'CoreServer';
 
@@ -31,7 +32,7 @@ class CoreServer extends EventEmitter {
         });
 
         this.server.bind(Config.CoreServer.port, '0.0.0.0');
-        console.log(TAG + ':', '127.0.0.1:' + Config.CoreServer.port);
+        console.log(TAG + ':', FindExternalIP() + ':' + Config.CoreServer.port);
     }
 
     send(packet) {

@@ -1,6 +1,6 @@
 # MEP Dashboard
 Dashboard (with server) is tool for collecting, analysing and visualising data from robot.
-![Dashboard](./docs/assets/dashboard-screenshot.png)
+![Dashboard](./docs/assets/dashboard-animation.gif)
 
 
 ## Installation

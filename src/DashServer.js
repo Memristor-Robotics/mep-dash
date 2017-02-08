@@ -3,6 +3,7 @@ const EventEmitter = require('events').EventEmitter;
 const Config = require('./Config');
 const Elasticsearch = require('elasticsearch');
 const clc = require('cli-color');
+const FindExternalIP = require('./utils/FindExternalIP');
 
 const TAG = 'DashServer';
 
@@ -40,7 +41,7 @@ class DashServer extends EventEmitter {
                 }
             });
         });
-        console.log(TAG + ':', '127.0.0.1:' + Config.DashServer.port);
+        console.log(TAG + ':', FindExternalIP() + ':' + Config.DashServer.port);
     }
 
     send(packet) {

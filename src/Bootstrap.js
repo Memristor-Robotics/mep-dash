@@ -49,13 +49,13 @@ if (enableElastic === true) {
 	// Start Elasticsearch
 	console.log('Starting Elasticsearch...');
     Elastic.startElasticsearch(() => {
-	    console.log('Elastisearch started (HEAD: http://127.0.0.1:9200/_plugin/head/)');
+	    console.log('Elastisearch started (HEAD: http://' + FindExternalIP() + '/_plugin/head/)');
 
 	    // Start Kibana
 	    if (enableKibana === true) {
 	        console.log('Starting Kibana...');
             Elastic.startKibana(() => {
-	            console.log('Kibana started at: http://127.0.0.1:5601/');
+	            console.log('Kibana started at: http://' + FindExternalIP() + ':5601/');
 	            OpenUrl.open('http://127.0.0.1:5601/');
 	        });
 	    }
